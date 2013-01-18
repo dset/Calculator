@@ -13,5 +13,15 @@ namespace Calculator
     /// </summary>
     public partial class App : Application
     {
+        void App_Startup(object sender, StartupEventArgs e)
+        {
+            MainWindow window = new MainWindow();
+
+            CalculatorModel calculator = new CalculatorModel();
+            CalculatorViewModel viewModel = new CalculatorViewModel(calculator);
+            window.DataContext = viewModel;
+
+            window.Show();
+        }
     }
 }
